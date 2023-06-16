@@ -1,0 +1,14 @@
+.buttonContainer {
+  width: 100%;
+  .button {
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: #a8bec9;
+    padding: 15px 30px;
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 16px;
+    width: fit-content;
+  }
+}

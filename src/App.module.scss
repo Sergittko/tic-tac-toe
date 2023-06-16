@@ -1,3 +1,31 @@
-h1 {
-  font-size: 25px;
+.gameContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 410px;
+  padding: 0 20px;
+  box-sizing: content-box;
+  margin: 0 auto;
+  .playerInfo {
+    display: flex;
+    justify-content: space-between;
+    background-color: #a8bec9;
+    border-radius: 5px;
+    padding: 10px 0;
+    // align-items: flex-end;
+  }
+  .gameInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    .playerMove {
+      display: block;
+      height: fit-content;
+      text-align: center;
+      padding: 5px;
+      font-size: 16px;
+    }
+  }
 }

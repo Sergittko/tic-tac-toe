@@ -1,0 +1,30 @@
+.playerInfoContiner {
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 10px;
+  .player {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+  }
+  p {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    // font-weight: 500;
+    span {
+      margin: 0 0 0 5px;
+      font-weight: 400;
+      position: relative;
+      .playerIcon {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        bottom: 0;
+        // left: 0;
+      }
+    }
+  }
+}
