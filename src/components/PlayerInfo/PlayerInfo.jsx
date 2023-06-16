@@ -18,14 +18,14 @@ const PlayerInfo = ({ player, wins }) => {
         <span>
           {player === 1 ? (
             <Xmark
-              fill="#122833"
+              fill="#31c4be"
               width={"18px"}
               height={"18px"}
               className={style.playerIcon}
             />
           ) : (
             <Ocircle
-              fill="#122833"
+              fill="#f2b237"
               width={"18px"}
               height={"18px"}
               className={style.playerIcon}
