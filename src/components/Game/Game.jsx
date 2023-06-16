@@ -14,6 +14,7 @@ const Game = ({
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(false);
 
   const handleClick = (index) => {
     if (squares[index] || checkWinner(squares)) return;
@@ -25,7 +26,7 @@ const Game = ({
 
   const finishGame = (draw = false) => {
     const winner = checkWinner(squares);
-    (draw || winner) && setShowModal(true);
+    (draw || winner) && setTimeout(() => setShowModal(true), 2000);
     if (winner) {
       winner === 1
         ? setFirstPlayerWins((prev) => ++prev)
@@ -45,8 +46,10 @@ const Game = ({
   };
 
   const resetGame = () => {
+    setShowPreloader(true);
     setFirstPlayer(true);
     setSquares(Array(9).fill(null));
+    setTimeout(() => setShowPreloader(false), 1000);
   };
 
   useEffect(() => {
@@ -56,7 +59,11 @@ const Game = ({
 
   return (
     <div>
-      <Board squares={squares} onSquareClick={handleClick} />
+      <Board
+        squares={squares}
+        onSquareClick={handleClick}
+        showPreloader={showPreloader}
+      />
       <div className={style.buttonContainer}>
         <button className={style.button} onClick={() => resetGame()}>
           Нова гра
