@@ -8,12 +8,61 @@ function App() {
   const [gamesPlayed, setGamesPlayed] = useState(0);
   const [firstPlayerWins, setFirstPlayerWins] = useState(0);
   const [secondPlayerWins, setSecondPlayerWins] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(9);
+  const [currentGameSize, setCurrentGameSize] = useState(selectedSize);
 
+  const handleSizeChange = (e) => {
+    setSelectedSize(+e.target.value);
+  };
+  const resizeWidth = (size) => {
+    switch (size) {
+      case 9:
+        return {
+          maxWidth: "435px",
+          height: "435px",
+        };
+      case 16:
+        return {
+          maxWidth: "510px",
+          height: "510px",
+        };
+      case 25:
+        return {
+          maxWidth: "570px",
+          height: "570px",
+        };
+
+      default:
+        return {
+          maxWidth: "435px",
+          height: "435px",
+        };
+    }
+  };
   return (
-    <div className={style.gameContainer}>
+    <div className={style.gameContainer} style={resizeWidth(currentGameSize)}>
       <div className={style.playerInfo}>
         <PlayerInfo player={1} wins={firstPlayerWins} />
         <div className={style.gameInformation}>
+          <div>
+            <label htmlFor="grid-size">Виберіть розмір:</label>
+            <select
+              id="grid-size"
+              value={selectedSize}
+              onChange={handleSizeChange}
+              style={{
+                backgroundColor: "#a8bec9",
+                padding: "8px",
+                border: "none",
+                fontSize: "16px",
+                borderRadius: "4px",
+              }}
+            >
+              <option value={9}>3x3</option>
+              <option value={16}>4x4</option>
+              <option value={25}>5x5</option>
+            </select>
+          </div>
           <span className={style.playerMove}>
             Xодить гравець: {firstPlayer ? "1" : "2"}
           </span>
@@ -27,6 +76,9 @@ function App() {
         setGamesPlayed={setGamesPlayed}
         setFirstPlayerWins={setFirstPlayerWins}
         setSecondPlayerWins={setSecondPlayerWins}
+        setCurrentGameSize={setCurrentGameSize}
+        currentGameSize={currentGameSize}
+        selectedSize={selectedSize}
       />
     </div>
   );

@@ -10,14 +10,17 @@ const Game = ({
   setGamesPlayed,
   setFirstPlayerWins,
   setSecondPlayerWins,
+  currentGameSize,
+  setCurrentGameSize,
+  selectedSize,
 }) => {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = useState(Array(currentGameSize).fill(null));
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
 
   const handleClick = (index) => {
-    if (squares[index] || checkWinner(squares)) return;
+    if (squares[index] || checkWinner(squares, currentGameSize)) return;
     const newSquares = [...squares];
     newSquares[index] = firstPlayer ? 1 : 2;
     setSquares(newSquares);
@@ -25,7 +28,7 @@ const Game = ({
   };
 
   const finishGame = (draw = false) => {
-    const winner = checkWinner(squares);
+    const winner = checkWinner(squares, currentGameSize);
     (draw || winner) && setTimeout(() => setShowModal(true), 2000);
     if (winner) {
       winner === 1
@@ -46,16 +49,21 @@ const Game = ({
   };
 
   const resetGame = () => {
+    setCurrentGameSize(selectedSize);
     setShowPreloader(true);
     setFirstPlayer(true);
-    setSquares(Array(9).fill(null));
+    setSquares(Array(currentGameSize).fill(null));
     setTimeout(() => setShowPreloader(false), 1000);
   };
 
   useEffect(() => {
     if (!squares.some((el) => el === null)) return finishGame(true);
-    if (checkWinner(squares)) return finishGame();
+    if (checkWinner(squares, currentGameSize)) return finishGame();
   }, [squares]);
+
+  useEffect(() => {
+    setSquares(Array(currentGameSize).fill(null));
+  }, [currentGameSize]);
 
   return (
     <div>
@@ -63,6 +71,7 @@ const Game = ({
         squares={squares}
         onSquareClick={handleClick}
         showPreloader={showPreloader}
+        currentGameSize={currentGameSize}
       />
       <div className={style.buttonContainer}>
         <button className={style.button} onClick={() => resetGame()}>
