@@ -6,9 +6,19 @@ const Square = ({ value, onSquareClick }) => {
   return (
     <button className={style.squareContiner} onClick={() => onSquareClick()}>
       {value === 1 ? (
-        <Xmark fill="#31c4be" width={"55%"} height={"55%"} />
+        <Xmark
+          fill="#31c4be"
+          width={"55%"}
+          height={"55%"}
+          className={style.squareIcon}
+        />
       ) : value === 2 ? (
-        <Ocircle fill="#f2b237" width={"50%"} height={"50%"} />
+        <Ocircle
+          fill="#f2b237"
+          width={"50%"}
+          height={"50%"}
+          className={style.squareIcon}
+        />
       ) : null}
     </button>
   );

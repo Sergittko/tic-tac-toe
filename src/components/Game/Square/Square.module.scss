@@ -4,4 +4,23 @@
   height: 100%;
   background-color: #1f3540;
   border-radius: 10px;
+  transition: 0.2s ease;
+  &:hover {
+    background-color: #102129;
+  }
+
+  .squareIcon {
+    animation: show 0.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
