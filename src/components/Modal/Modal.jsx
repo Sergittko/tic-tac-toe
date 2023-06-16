@@ -10,7 +10,9 @@ const Modal = ({ message, setShowModal }) => {
       <div className={style.modalContent}>
         <p>{message.gameStatus}</p>
         <p>{message.message}</p>
-        <button onClick={() => setShowModal(false)}>OK</button>
+        <button onClick={() => setTimeout(() => setShowModal(false), 200)}>
+          OK
+        </button>
       </div>
     </div>
   );
