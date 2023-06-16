@@ -50,8 +50,8 @@ const Game = ({
   };
 
   useEffect(() => {
-    !squares.some((el) => el === null) && finishGame(true);
-    checkWinner(squares) && finishGame();
+    if (!squares.some((el) => el === null)) return finishGame(true);
+    if (checkWinner(squares)) return finishGame();
   }, [squares]);
 
   return (
