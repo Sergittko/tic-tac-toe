@@ -50,13 +50,7 @@ function App() {
               id="grid-size"
               value={selectedSize}
               onChange={handleSizeChange}
-              style={{
-                backgroundColor: "#a8bec9",
-                padding: "8px",
-                border: "none",
-                fontSize: "16px",
-                borderRadius: "4px",
-              }}
+              className={style.sizeSelect}
             >
               <option value={9}>3x3</option>
               <option value={16}>4x4</option>

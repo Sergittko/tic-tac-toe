@@ -3,7 +3,7 @@ export const checkWinner = (squares, size) => {
   if (size === 16) return checkWinnerX4(squares);
   if (size === 25) return checkWinnerX5(squares);
 };
-export const checkWinnerX3 = (squares) => {
+const checkWinnerX3 = (squares) => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -25,7 +25,7 @@ export const checkWinnerX3 = (squares) => {
   return null;
 };
 
-export const checkWinnerX4 = (squares) => {
+const checkWinnerX4 = (squares) => {
   const lines = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
@@ -54,7 +54,7 @@ export const checkWinnerX4 = (squares) => {
   return null;
 };
 
-export const checkWinnerX5 = (squares) => {
+const checkWinnerX5 = (squares) => {
   const lines = [
     [0, 1, 2, 3, 4],
     [5, 6, 7, 8, 9],

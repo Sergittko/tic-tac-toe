@@ -20,6 +20,13 @@
     flex-direction: column;
     justify-content: center;
     border-radius: 5px;
+    .sizeSelect {
+      background-color: #a8bec9;
+      padding: 0px;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+    }
     .playerMove {
       display: block;
       height: fit-content;
