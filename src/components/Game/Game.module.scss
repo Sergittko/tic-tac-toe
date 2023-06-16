@@ -10,5 +10,12 @@
     border-radius: 10px;
     font-size: 16px;
     width: fit-content;
+    transition: 0.2s ease-in;
+    &:hover {
+      background-color: #89969d;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
