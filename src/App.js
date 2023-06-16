@@ -2,6 +2,7 @@ import style from "./App.module.scss";
 import PlayerInfo from "./components/PlayerInfo/PlayerInfo";
 import Game from "./components/Game/Game";
 import { useState } from "react";
+import { resizeWidth } from "./assets/resizeStyles";
 
 function App() {
   const [firstPlayer, setFirstPlayer] = useState(true);
@@ -14,31 +15,7 @@ function App() {
   const handleSizeChange = (e) => {
     setSelectedSize(+e.target.value);
   };
-  const resizeWidth = (size) => {
-    switch (size) {
-      case 9:
-        return {
-          maxWidth: "435px",
-          height: "435px",
-        };
-      case 16:
-        return {
-          maxWidth: "510px",
-          height: "510px",
-        };
-      case 25:
-        return {
-          maxWidth: "570px",
-          height: "570px",
-        };
 
-      default:
-        return {
-          maxWidth: "435px",
-          height: "435px",
-        };
-    }
-  };
   return (
     <div className={style.gameContainer} style={resizeWidth(currentGameSize)}>
       <div className={style.playerInfo}>
